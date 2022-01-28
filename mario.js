@@ -15,14 +15,32 @@ function printPyramid(height) {
     numSpaces = height - row - 1;
 
     for (var i = 0; i < numSpaces; i++) {
-        layer += " ";
+        layer += ".";
     }
     for (var i = 0; i < numBricks; i++) {
         layer += "#";
     }
 
       console.log(layer);
+			//create a paragraph element
+      let para = document.createElement("p");
+
+      //create text
+      let node = document.createTextNode(layer);
+
+      //add the text to the paragraph element
+      para.appendChild(node);
+
+      //create a variable to reference the div element
+      let element = document.getElementById("pyramid");
+
+      //add the paragraph element to the div element      
+      element.appendChild(para);
   }
+
+	var el = document.getElementById("construction");
+	el.remove();
+	
     
       
 }
