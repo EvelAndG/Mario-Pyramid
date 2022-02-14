@@ -1,5 +1,12 @@
-let height = prompt("Enter height for pyramid: ");
-printPyramid(height);
+//let height = prompt("Enter height for pyramid: ");
+//printPyramid(height);
+let height = 6;
+var x = document.getElementById("height");
+
+
+const element = document.getElementById("myBtn");
+element.addEventListener("click", printPyramid(height))
+
 
 
 function printPyramid(height) {
@@ -38,8 +45,8 @@ function printPyramid(height) {
       element.appendChild(para);
   }
 
-	var el = document.getElementById("construction");
-	el.remove();
+	//var el = document.getElementById("construction");
+	//el.remove();
 	
     
       
