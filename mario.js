@@ -1,53 +1,50 @@
-//let height = prompt("Enter height for pyramid: ");
-//printPyramid(height);
-let height = 6;
-var x = document.getElementById("height");
 
-
-const element = document.getElementById("myBtn");
-element.addEventListener("click", printPyramid(height))
-
-
-
-function printPyramid(height) {
-  var height;
-  var numBricks = 0;
-  var numSpaces = 0;
-
-
-  for (var row = 0; row < height; row++) {
-    var layer = "";  
+function printPyramid() {
     
-    numBricks = row + 2;
-    numSpaces = height - row - 1;
+    var inputValue = document.getElementById("height").value;
+    x = parseInt(inputValue);
 
-    for (var i = 0; i < numSpaces; i++) {
-        layer += ".";
-    }
-    for (var i = 0; i < numBricks; i++) {
-        layer += "#";
+    return drawPyramid(x);
+
+    
+
+}
+
+
+var button = document.querySelector('button');
+button.addEventListener("click", printPyramid);
+
+ function drawPyramid(height) {
+    
+    
+    // removes existing pyramid
+    var pyramidDiv = document.getElementById("pyramid");
+    while (pyramidDiv.firstChild) {
+        pyramidDiv.removeChild(pyramidDiv.firstChild);
     }
 
-      console.log(layer);
-			//create a paragraph element
-      let para = document.createElement("p");
 
-      //create text
-      let node = document.createTextNode(layer);
+    for (var row = 0; row < height; row++) {
 
-      //add the text to the paragraph element
-      para.appendChild(node);
+        var numBricks = row + 2;
+        var numSpaces = height - row - 1;
 
-      //create a variable to reference the div element
-      let element = document.getElementById("pyramid");
-
-      //add the paragraph element to the div element      
-      element.appendChild(para);
-  }
-
-	//var el = document.getElementById("construction");
-	//el.remove();
-	
     
-      
+        var rowStr = "";
+        for (var i = 0; i < numSpaces; i++) {
+            rowStr += ".";
+        }
+        for (var i = 0; i < numBricks; i++) {
+            rowStr += "#";
+
+        }
+
+        textElem = document.createTextNode(rowStr);
+
+        rowElem = document.createElement("p");
+        rowElem.appendChild(textElem);
+
+
+        document.getElementById("pyramid").appendChild(rowElem);
+    }
 }
